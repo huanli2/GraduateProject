@@ -1,0 +1,40 @@
+%%==================================================
+%% abstract.tex for SJTU Master Thesis
+%% based on CASthesis
+%% modified by wei.jianwen@gmail.com
+%% version: 0.3a
+%% Encoding: UTF-8
+%% last update: Dec 5th, 2014
+%%==================================================
+
+\begin{abstract}
+
+烟雾、流水等流体是自然环境的重要组成部分，计算机模拟的流体行为能增添虚拟现实的真实感。近年来，在计算机图形学领域，已经出现了一大批稳定、逼真、比较高效的流体动画模拟方法，并且大量地应用到了影视游戏等产业。但是，基于速度场的欧拉流体模拟方法在计算大规模的流体动画时，投影步骤需要耗费大量的计算时间，成为欧拉流体模拟方法的瓶颈。
+
+针对欧拉流体模拟方法的投影步骤，本文提出一种应用过完备稀疏字典技术的流体模拟方法，从流体场数据的局部细微结构入手，利用稀疏编码技术，建立能够匹配并重构高精度空间的复杂流体数据稀疏表示的过完备稀疏字典。然后线性组合该高精度度字典与下采样矩阵生成适用于低精度流场数据的过完备稀疏字典。其下采样矩阵与下采样高精度速度场到其低精度空间版本的下采样矩阵是同一矩阵，故理论上该低精度空间的过完备字典能够匹配低精度速度场数据的稀疏表示。
+
+同时，为了将超完备稀疏字典技术应用到流体的加速模拟中，本文还建立了一个适用于流体模拟的重构上采样框架。该框架在投影步骤之前将流体的高精度速度场数据下采样到低精度网格上，在低精度网格上计算投影步骤，再利用超完备稀疏字典技术，将低精度流体的速度场数据还原到其高精度版本，并将还原后的高精度流场数据用于下一帧的计算。该框架巧妙地将欧拉方法的瓶颈步骤放到了低精度网格上计算，有效地避开了投影步骤的高耗时问题，从整体上提高了流体模拟的计算效率。
+
+本文提出的方法与框架理论上适用于所有的欧拉流体模拟方法，并且用户可以根据自己的需求选择合适的降采样矩阵降采样流体速度场数据，该方法与框架具有可快速移植的特点。
+
+本文提出的方法适用于模拟速度较慢的流体模拟方法。实验部分给出了本文方法的实验效果图，实验结果表明，本文方法能在一定程度上恢复流场的细节。在选取合适的参数时，即使与模拟较快的流体模拟器相比，本文的方法也可以在一定程度上加快流体模拟的速度。
+
+  \keywords{\large 流体动画，过完备稀疏字典，稀疏编码，重构上采样，投影}
+\end{abstract}
+
+\begin{englishabstract}
+
+Smoke, water and other fluids is an important part of the natural environment, and the computer simulation for fluid behavior of real world can make the virtual world more real. In recent years, the fields of computer graphics have proposed a lot of stable, realistic, efficient fluid simulation method, and have been widely used in movie and video game industry. However,  when simulating large-scale fluid scene, the projection step of Euler method which based on the computation of velocity field will be very time-consuming, and it is the bottleneck of Euler method of fluid simulation. 
+
+Considering the bottleneck of Euler method of fluid simulation, the paper proposed a method applies a couple of overcomplete dictionaries based on sparse coding into fluid simulation. We use the local fine structure of high-resolution fluid data to learn an overcomplete dictionary, which can match various complex local fine structures of high-resolution fluid data and be used to recover these local fine structures by combined with the sparse representation. We calculate a low-resolution dictionary by multiplying the learned high-resolution dictionary with a down-sampling matrix. The down-sampling matrix will also be used to down-sample the high-resolution fluid velocity data to its low-resolution version, thus in theory, this dictionary of low-resolution space can be used to decomposite the sparse representation of low-resolution velocity field.
+
+Meanwhile, in order to accelerate the simulation of fluid animation by using overcomplete dictionaries, this paper also established a reconstruction and up-sampling framework for fluid animation. this paper also established a reconstruction and up-sampling framework for fluid animation, which maps the local fine structures of the high-resolution fluids data to their low-resolution version before the projection step, 
+and the projection step is computed on a low-resolution grid, after which we use the trained overcomplete dictionaries to up-sample and reconstruct the low-resolution fluid data to their high-resolution version. This high-resolution fluid data will be used to compute velocity field of the next frame.  This framework
+avoids to compute the projection step on a high-resolution grid, which can accelerate the computation of fluid simulation.
+
+The method propsed by this paper can be applied to any fluid simulator based on Euler, and the down-sampling matrix can be customized on one's own purpose. this framework can be easily intergrated to any fluid simulators.
+
+Our framework can be applied to the simulators which is computationally slow on a higher resolution grid and want to accelerate to a certain extent. The result of this method will be shown in the Result Section, and proves that our method can recover the details of fluid to a certain extend. Using the appropriate parameters, even compared with a relatively fast fluid simulator used in our experiment, our method can accelerate the computation speed to a certain extend.
+
+  \englishkeywords{\large fluid animation, overcomplete dictionaries, sparse coding, reconstruct and up-sampling, projection}
+\end{englishabstract}

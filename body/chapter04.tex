@@ -1,0 +1,166 @@
+%%==================================================
+%% chapter03.tex for SJTU Master Thesis
+%% Encoding: UTF-8
+%%==================================================
+
+\chapter{常见问题与故障排除}
+\label{chap:faq}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.3\textwidth]{chap2/testpng}
+  \hspace{1cm}
+  \includegraphics[width=0.3\textwidth]{chap2/testjpg}
+  \bicaption[fig:SRR]{这里将出现在插图索引中}{中文题图}{Fig}{English caption}
+\end{figure}
+
+\subsubsection*{如何获得帮助和反馈意见}
+你可以通过如下的途径反馈模板使用过程中遇到的问题：\href{https://github.com/weijianwen/sjtu-thesis-template-latex/issues}{开issue}
+、\href{https://bbs.sjtu.edu.cn/bbsdoc?board=TeX_LaTeX}{水源LaTeX版}发帖，或者是给\href{mailto:weijianwen@gmail.com}{我}发送邮件---你可能需要好几天才能收到我的邮件回复。
+
+\begin{table}[!hpb]
+  \centering
+  \bicaption[tab:firstone]{指向一个表格的表目录索引}{一个颇为标准的三线表格\footnotemark[2]}{Table}{A Table}
+  \begin{tabular}{@{}llr@{}} \toprule
+    \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
+    Animal & Description & Price (\$)\\ \midrule
+    Gnat & per gram & 13.65 \\
+    & each & 0.01 \\
+    Gnu & stuffed & 92.50 \\
+    Emu & stuffed & 33.33 \\
+    Armadillo & frozen & 8.99 \\ \bottomrule
+  \end{tabular}
+\end{table}
+\footnotetext[2]{这个例子来自\href{http://www.ctan.org/tex-archive/macros/latex/contrib/booktabs/booktabs.pdf}{《Publication quality tables in LATEX》}(booktabs宏包的文档)。这也是一个在表格中使用脚注的例子，请留意与threeparttable实现的效果有何不同。}
+
+
+下面一个是一个更复杂的表格，用threeparttable实现带有脚注的表格，如表\ref{tab:footnote}。
+
+\begin{table}[!htpb]
+  \bicaption[tab:footnote]{出现在表目录的标题}{一个带有脚注的表格的例子}{Table}{A Table with footnotes}
+  \centering
+  \begin{threeparttable}[b]
+     \begin{tabular}{ccd{4}cccc}
+      \toprule
+      \multirow{2}{6mm}{total}&\multicolumn{2}{c}{20\tnote{1}} & \multicolumn{2}{c}{40} &  \multicolumn{2}{c}{60}\\
+      \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+      &www & k & www & k & www & k \\
+      \midrule
+      &$\underset{(2.12)}{4.22}$ & 120.0140\tnote{2} & 333.15 & 0.0411 & 444.99 & 0.1387 \\
+      &168.6123 & 10.86 & 255.37 & 0.0353 & 376.14 & 0.1058 \\
+      &6.761    & 0.007 & 235.37 & 0.0267 & 348.66 & 0.1010 \\
+      \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+    \item [1] the first note.% or \item [a]
+    \item [2] the second note.% or \item [b]
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\section{参考文献管理}
+
+参考文献的管理是这个学位论文模板又一个好玩的地方。
+
+\begin{lstlisting}[caption={.bbl中被格式化之后的条目}, escapeinside="", numbers=none]
+\bibitem["白云芬(2008)"]{bai2008}
+  \textsc{"白云芬"}.
+  \newblock {"信用风险传染模型和信用衍生品的定价"}[D].
+  \newblock "上海: 上海交通大学, 2008."
+\end{lstlisting}
+
+再罗嗦两句，
+.bst文件书写起来非常繁杂\footnote{可以参考\href{http://ftp.ctex.org/mirrors/CTAN/info/bibtex/tamethebeast/ttb_en.pdf}{《Tame The BeaST》}。}，书写符合GBT7714标准的.bst文件更是一项浩大的工程。
+因此，当大家为漂亮、标准的参考文献列表感到满意时，应该对GBT7714-2005NLang.bst的作者充满谢意。
+作者在CTeX BBS发的帖子，请看
+\href{http://bbs.ctex.org/viewthread.php?tid=33571&highlight=\%B2\%CE\%BF\%BC\%CE\%C4\%CF\%D7\%2BGB}{文后参考文献著录规则 GB/T 7714-2005}。
+关于GB/T 7714-2005标准本身，请看\href{http://bbs.ctex.org/viewthread.php?tid=33571&highlight=GB\%2B\%B2\%CE\%BF\%BC\%CE\%C4\%CF\%D7}{这里}。
+
+再多说两句，.bib是“参考文献的内容”，而控制参考文献表现(格式)的是.bst文件，本模板附带的是GBT7714-2005NLang.bst。
+
+\subsection{在正文中引用参考文献}
+
+\begin{lstlisting}[language={C}, caption={一段C源代码}]
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+  pid_t pid;
+
+  switch ((pid = fork())) {
+  case -1:
+    printf("fork failed\n");
+    break;
+  case 0:
+    /* child calls exec */
+    execl("/bin/ls", "ls", "-l", (char*)0);
+    printf("execl failed\n");
+    break;
+  default:
+    /* parent uses wait to suspend execution until child finishes */
+    wait((int*)0);
+    printf("is completed\n");
+    break;
+  }
+
+  return 0;
+}
+\end{lstlisting}
+
+再给一个插入MATLAB代码的例子，感谢daisying站友提供的代码。
+
+\begin{lstlisting}[language={matlab}, caption={一段MATLAB源代码}]
+function paper1
+r=0.05;
+n=100;
+T=1;
+X=1;
+v0=0.8;
+sigma=sqrt(0.08);
+deltat=T/n;
+for i=1:n
+    t(i)=i*deltat;
+    w(i)=random('norm',0,t(i),1);
+end
+for i=1:n
+    alpha(i)=0.39;
+end
+for i=1:n
+    temp=0;
+    for k=1:i
+        temp=temp+alpha(k);
+    end
+    B(i)=exp(r*t(i));
+    BB(i)=B(i)*exp(temp*deltat);
+    BBB(i)=exp(-r*(T-t(i)));
+end
+for i=1:n
+    s0(i)=X*BBB(i);
+    v(i)=v0*exp((r-0.5*sigma^2)*t(i)+sigma*w(i));
+    for j=i+1:n
+        D=X*BBB(j);
+        d1=(log(v(i)/D)+(r+sigma^2/2)*(t(j)-t(i)))/(sigma*sqrt(t(j)-t(i)));
+        d2=d1-(sigma*sqrt(t(j)-t(i)));
+        ppp(i,j)=D*exp(-r*(t(j)-t(i)))*(1-cdf('normal',d2,0,1))-v(i)*(1-cdf('n
+ormal',d1,0,1));
+    end
+end
+for i=1:n
+    s1(i)=0;
+    for j=i+1:n
+        s1(i)=s1(i)+BB(j)^(-1)*alpha(j)*deltat*(X*BBB(j)-B(j)/B(i)*ppp(i,j));
+    end
+    s2(i)=0;
+    for j=1:n
+        s2(i)=s2(i)+alpha(j);
+    end
+    s2(i)=X*exp(-r*T-s2(i)*deltat);
+    s(i)=BB(i)*(s1(i)+s2(i));
+end
+plot(s)
+hold on;
+plot(s0);
+\end{lstlisting}
+

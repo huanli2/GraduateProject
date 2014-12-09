@@ -1,0 +1,199 @@
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Foster and Metaxas(1997)]{foster1997modeling}
+\textsc{Foster N, Metaxas D}.
+\newblock
+\newblock
+\newblock Modeling the motion of a hot, turbulent gas[C]//Proceedings of the
+  24th annual conference on Computer graphics and interactive
+  techniques.[S.l.]: ACM Press/Addison-Wesley Publishing Co., 1997:181--188.
+
+\bibitem[Stam(1999)]{stam1999stable}
+\textsc{Stam J}.
+\newblock
+\newblock
+\newblock Stable fluids[C]//Proceedings of the 26th annual conference on
+  Computer graphics and interactive techniques.[S.l.]: ACM Press/Addison-Wesley
+  Publishing Co., 1999:121--128.
+
+\bibitem[Fedkiw et al.(2001)]{fedkiw2001visual}
+\textsc{Fedkiw R, Stam J, Jensen H~W}.
+\newblock
+\newblock
+\newblock Visual simulation of smoke[C]//Proceedings of the 28th annual
+  conference on Computer graphics and interactive techniques.[S.l.]: ACM,
+  2001:15--22.
+
+\bibitem[Enright et al.(2002)]{enright2002animation}
+\textsc{Enright D, Marschner S, Fedkiw R}.
+\newblock
+\newblock
+\newblock Animation and rendering of complex water surfaces[C]//ACM
+  Transactions on Graphics (TOG).[S.l.]: ACM, 2002，21:736--744.
+
+\bibitem[M{\"u}ller et al.(2003)]{muller2003particle}
+\textsc{M{\"u}ller M, Charypar D, Gross M}.
+\newblock
+\newblock
+\newblock Particle-based fluid simulation for interactive
+  applications[C]//Proceedings of the 2003 ACM SIGGRAPH/Eurographics symposium
+  on Computer animation.[S.l.]: Eurographics Association, 2003:154--159.
+
+\bibitem[Adams et al.(2007)]{adams2007adaptively}
+\textsc{Adams B, Pauly M, Keiser R}, et al.
+\newblock
+\newblock
+\newblock Adaptively sampled particle fluids[C]//ACM Transactions on Graphics
+  (TOG).[S.l.]: ACM, 2007，26:48.
+
+\bibitem[Angelidis and Neyret(2005)]{angelidis2005simulation}
+\textsc{Angelidis A, Neyret F}.
+\newblock
+\newblock
+\newblock Simulation of smoke based on vortex filament
+  primitives[C]//Proceedings of the 2005 ACM SIGGRAPH/Eurographics symposium on
+  Computer animation.[S.l.]: ACM, 2005:87--96.
+
+\bibitem[Angelidis et al.(2006)]{angelidis2006controllable}
+\textsc{Angelidis A, Neyret F, Singh K}, et al.
+\newblock
+\newblock
+\newblock A controllable, fast and stable basis for vortex based smoke
+  simulation[C]//Proceedings of the 2006 ACM SIGGRAPH/Eurographics symposium on
+  Computer animation.[S.l.]: Eurographics Association, 2006:25--32.
+
+\bibitem[Losasso et al.(2004)]{losasso2004simulating}
+\textsc{Losasso F, Gibou F, Fedkiw R}.
+\newblock Simulating water and smoke with an octree data structure[J].
+\newblock ACM Transactions on Graphics (TOG), 2004, 23(3):457--462.
+
+\bibitem[Dobashi et al.(2008)]{dobashi2008fast}
+\textsc{Dobashi Y, Matsuda Y, Yamamoto T}, et al.
+\newblock
+\newblock A fast simulation method using overlapping grids for interactions
+  between smoke and rigid objects[C]//Computer Graphics Forum.
+\newblock .[S.l.]: [s.n.] , 2008，27:477--486.
+
+\bibitem[Zhu et al.(2010)]{zhu2010creating}
+\textsc{Zhu B, Yang X, Fan Y}.
+\newblock
+\newblock Creating and preserving vortical details in sph fluid[C]//Computer
+  Graphics Forum.
+\newblock .[S.l.]: [s.n.] , 2010，29:2207--2214.
+
+\bibitem[Golas et al.(2012)]{golas2012large}
+\textsc{Golas A, Narain R, Sewall J}, et al.
+\newblock Large-scale fluid simulation using velocity-vorticity domain
+  decomposition[J].
+\newblock ACM Transactions on Graphics (TOG), 2012, 31(6):148.
+
+\bibitem[Yoon et al.(2009)]{yoon2009procedural}
+\textsc{Yoon J~C, Kam H~R, Hong J~M}, et al.
+\newblock
+\newblock Procedural synthesis using vortex particle method for fluid
+  simulation[C]//Computer Graphics Forum.
+\newblock .[S.l.]: [s.n.] , 2009，28:1853--1859.
+
+\bibitem[Kim et al.(2008)]{kim2008wavelet}
+\textsc{Kim T, Th{\"u}rey N, James D}, et al.
+\newblock
+\newblock Wavelet turbulence for fluid simulation[C]//ACM Transactions on
+  Graphics (TOG).
+\newblock .[S.l.]: [s.n.] , 2008，27:50.
+
+\bibitem[Lentine et al.(2010)]{lentine2010novel}
+\textsc{Lentine M, Zheng W, Fedkiw R}.
+\newblock A novel algorithm for incompressible flow using only a coarse grid
+  projection[J].
+\newblock ACM Transactions on Graphics (TOG), 2010, 29(4):114.
+
+\bibitem[Treuille et al.(2006)]{treuille2006model}
+\textsc{Treuille A, Lewis A, Popovi{\'c} Z}.
+\newblock Model reduction for real-time fluids[J].
+\newblock ACM Transactions on Graphics (TOG), 2006, 25(3):826--834.
+
+\bibitem[Wicke et al.(2009)]{wicke2009modular}
+\textsc{Wicke M, Stanton M, Treuille A}.
+\newblock
+\newblock Modular bases for fluid dynamics[C]//ACM Transactions on Graphics
+  (TOG).
+\newblock .[S.l.]: [s.n.] , 2009，28:39.
+
+\bibitem[Candes and Tao(2006)]{candes2006near}
+\textsc{Candes E~J, Tao T}.
+\newblock Near-optimal signal recovery from random projections: Universal
+  encoding strategies?[J].
+\newblock Information Theory, IEEE Transactions on, 2006, 52(12):5406--5425.
+
+\bibitem[Donoho(2006)]{donoho2006compressed}
+\textsc{Donoho D~L}.
+\newblock Compressed sensing[J].
+\newblock Information Theory, IEEE Transactions on, 2006, 52(4):1289--1306.
+
+\bibitem[Cand{\`e}s and Wakin(2008)]{candes2008introduction}
+\textsc{Cand{\`e}s E~J, Wakin M~B}.
+\newblock An introduction to compressive sampling[J].
+\newblock Signal Processing Magazine, IEEE, 2008, 25(2):21--30.
+
+\bibitem[Kroeker(2009)]{kroeker2009face}
+\textsc{Kroeker K~L}.
+\newblock Face recognition breakthrough[J].
+\newblock Communications of the ACM, 2009, 52(8):18--19.
+
+\bibitem[Rubinstein et al.(2010)]{rubinstein2010dictionaries}
+\textsc{Rubinstein R, Bruckstein A~M, Elad M}.
+\newblock Dictionaries for sparse representation modeling[J].
+\newblock Proceedings of the IEEE, 2010, 98(6):1045--1057.
+
+\bibitem[Yang et al.(2010)]{yang2010image}
+\textsc{Yang J, Wright J, Huang T~S}, et al.
+\newblock Image super-resolution via sparse representation[J].
+\newblock Image Processing, IEEE Transactions on, 2010, 19(11):2861--2873.
+
+\bibitem[Yang et al.(2008)]{yang2008image}
+\textsc{Yang J, Wright J, Huang T}, et al.
+\newblock
+\newblock Image super-resolution as sparse representation of raw image
+  patches[C]//Computer Vision and Pattern Recognition, 2008. CVPR 2008. IEEE
+  Conference on.
+\newblock .[S.l.]: [s.n.] , 2008:1--8.
+
+\bibitem[Yang et al.(2012)]{yang2012coupled}
+\textsc{Yang J, Wang Z, Lin Z}, et al.
+\newblock Coupled dictionary training for image super-resolution[J].
+\newblock Image Processing, IEEE Transactions on, 2012, 21(8):3467--3478.
+
+\bibitem[Marwah et al.(2013)]{marwah2013compressive}
+\textsc{Marwah K, Wetzstein G, Bando Y}, et al.
+\newblock Compressive light field photography using overcomplete dictionaries
+  and optimized projections[J].
+\newblock ACM Transactions on Graphics (TOG), 2013, 32(4):46.
+
+\bibitem[Mallat and Zhang(1993)]{mallat1993matching}
+\textsc{Mallat S~G, Zhang Z}.
+\newblock Matching pursuits with time-frequency dictionaries[J].
+\newblock Signal Processing, IEEE Transactions on, 1993, 41(12):3397--3415.
+
+\bibitem[Chen et al.(1998)]{chen1998atomic}
+\textsc{Chen S~S, Donoho D~L, Saunders M~A}.
+\newblock Atomic decomposition by basis pursuit[J].
+\newblock SIAM journal on scientific computing, 1998, 20(1):33--61.
+
+\bibitem[Donoho(1995)]{donoho1995noising}
+\textsc{Donoho D~L}.
+\newblock De-noising by soft-thresholding[J].
+\newblock Information Theory, IEEE Transactions on, 1995, 41(3):613--627.
+
+\bibitem[Bridson and M{\"u}ller-Fischer(2007)]{bridson2007fluid}
+\textsc{Bridson R, M{\"u}ller-Fischer M}.
+\newblock
+\newblock
+\newblock Fluid simulation: SIGGRAPH 2007 course notes Video files associated
+  with this course are available from the citation page[M].[S.l.]: ACM, 2007.
+
+\end{thebibliography}

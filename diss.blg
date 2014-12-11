@@ -126,45 +126,67 @@ You can't pop an empty literal stack for entry bridson2007fluid
 while executing---line 3617 of file GBT7714-2005NLang.bst
 You can't pop an empty literal stack for entry bridson2007fluid
 while executing---line 3617 of file GBT7714-2005NLang.bst
-You've used 30 entries,
+You can't pop an empty literal stack for entry harlow1965numerical
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry selle2008unconditionally
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry kim2005flowfixer
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry kim2005flowfixer
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry dupont2003back
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry molemaker2008low
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry molemaker2008low
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry stam2003real
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry stam2003real
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry foster2001practical
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You can't pop an empty literal stack for entry foster2001practical
+while executing---line 3617 of file GBT7714-2005NLang.bst
+You've used 37 entries,
             6888 wiz_defined-function locations,
-            1401 strings with 13521 characters,
-and the built_in function-call counts, 18361 in all, are:
-= -- 1752
-> -- 370
-< -- 10
-+ -- 202
-- -- 86
-* -- 1682
-:= -- 2392
-add.period$ -- 105
-call.type$ -- 30
-change.case$ -- 30
-chr.to.int$ -- 30
-cite$ -- 30
-duplicate$ -- 1258
-empty$ -- 2198
-format.name$ -- 154
-if$ -- 4241
+            1441 strings with 14753 characters,
+and the built_in function-call counts, 22395 in all, are:
+= -- 2139
+> -- 456
+< -- 13
++ -- 249
+- -- 106
+* -- 2039
+:= -- 2922
+add.period$ -- 130
+call.type$ -- 37
+change.case$ -- 37
+chr.to.int$ -- 37
+cite$ -- 37
+duplicate$ -- 1528
+empty$ -- 2684
+format.name$ -- 191
+if$ -- 5173
 int.to.chr$ -- 1
-int.to.str$ -- 31
-missing$ -- 31
-newline$ -- 173
-num.names$ -- 60
-pop$ -- 239
+int.to.str$ -- 38
+missing$ -- 38
+newline$ -- 212
+num.names$ -- 74
+pop$ -- 291
 preamble$ -- 1
-purify$ -- 30
+purify$ -- 37
 quote$ -- 0
-skip$ -- 354
+skip$ -- 439
 stack$ -- 0
-substring$ -- 2097
-swap$ -- 60
+substring$ -- 2529
+swap$ -- 74
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 118
+type$ -- 146
 warning$ -- 0
-while$ -- 154
+while$ -- 193
 width$ -- 0
-write$ -- 442
-(There were 54 error messages)
+write$ -- 544
+(There were 65 error messages)

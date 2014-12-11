@@ -105,8 +105,82 @@ Nacier-Stokes方程组的式~\ref{basicEq}根据质量，动量，和能量的�
 
 根据绪论部分的介绍，我们可知目前现有的流体模拟方法主要有三大类，即欧拉网格法、拉格朗日粒子法和基于旋度的方法。本文主要研究基于欧拉网格方法的重构上采样框架，故本章的该部分将会重点介绍用欧拉网格法求解Navier-Stokes方程组的框架。
 
-\subsection{欧拉方法网格介绍}
+\subsection{网格介绍}
 
-用欧拉方法求解流体动画时，需要在网格上对其进行求解计算。Harlow等人~\cite{harlow1965numerical}提出了MAC网格方法，
+\begin{figure}
+  \centering
+   \includegraphics[height=1.6 in]{chap2/centergrid2D}
+  \bicaption[fig:centergrid2d]{}{中心网格2D示意图}{Fig}{cells from 2D center grid}
+\end{figure}
 
+用欧拉方法求解流体动画时，需要在网格上对其进行求解计算。最简单的网格模型是中心网格，该网格模型把所有的变量都存储在网格的中心点上，如图~\ref{fig:centergrid2d}描述了中心网格在2D场景下变量的存储方式。但是被更加广为使用的是MAC网格模型，由Harlow等人~\cite{harlow1965numerical}提出。MAC网格实际上时一个交错的网格，变量存储在网格的不同位置上，并且存储在不同位置的变量有不同的含义，如图~\ref{fig:macgrid}所示，（a）和（b）分别描述了2D场景和3D场景下MAC网格各变量的存储方式，其中\(p\)是压力值，\(u,v,w\)分别表示速度场的三个分量。相较于中心网格，MAC网格的计算效率更高，并且更加稳定。本文提出的流体模拟重构框架既适用于中心网格，也适用于MAC网格。
 
+\begin{figure}
+  \centering
+   \includegraphics[height=2.5 in]{chap2/macgrid}
+  \bicaption[fig:macgrid]{}{(a) 2D MAC网格示意图；(b) 3D MAC网格示意图}{Fig}{(a) one cell from the 2D MAC grid;(b) one cell from the 3D MAC grid}
+\end{figure}
+
+\subsection{欧拉方法的基本框架}
+
+Navier-Stokes方程组方程组虽然看起来简单，但是因为方程式~\ref{basicEqignoreVis}存在非线性项，故直接求解非常困难。为了简化求解过程，通常会把Navier-Stokes方程组分解成三个部分求解，分别为对流、体积力和压力/不可压缩部分。分别列出如下：
+
+\begin{equation}
+\label{eq:advection}
+\frac{\partial {\boldsymbol u}}{\partial t} + {\boldsymbol u} \cdot \nabla {\boldsymbol u} = 0  \ \ \ \ \ (advection)
+\end{equation}
+\begin{equation}
+\label{eq:addForce}
+\frac{\partial {\boldsymbol u}}{\partial t} = {\boldsymbol g}  \ \ \ \ \ \ (body forces)
+\end{equation}
+\begin{equation}
+\label{eq:projection}
+\frac{\partial {\boldsymbol u}}{\partial t} + \frac{1}{\rho} \nabla p= 0 
+\ \ \ \ \ 
+ s.t. \ \ \ \ \ 
+ \nabla \cdot {\boldsymbol u} = 0 \ \ \ \ \ \ (pressure/incompressibility)
+\end{equation}
+
+上述三个方程式通常对应欧拉方法的三个步骤，即式~\ref{eq:advection}对应对流步，通常表示为advection，该步骤把速度场\({\boldsymbol u}\)对流一个时间间隔\(\Delta t\)；式~\ref{eq:addForce}对应外力步，表示成addForce；式~\ref{eq:projection}对应投影步，表示为projection，该步骤保证速度场\({\boldsymbol u}\)是无散的，并且同时还需要满足固体边界条件。
+
+在这三个部分中，我们需要保证对流是在无散速度场中进行的，故advection步骤的运行需要以projection步骤的输出为前提。综上所述，可以归纳流体模拟方法的基本框架的伪代码如代码~\ref{Eulerframework}所示。
+
+\begin{lstlisting}[caption={流体模拟的基本框架伪代码}, escapeinside="", numbers=none, label={Eulerframework}]
+1.    initialize a divergence-free velocity field ${\boldsymbol u}^{(0)}$;
+2.     For every time step $n = 0,1,2,...$
+3.        Do the advection: ${\boldsymbol u}^{A} = advection({\boldsymbol u}^n, \Delta t)$;
+4.        Do the addForce: ${\boldsymbol u}^{B} = {\boldsymbol u}^{A} + {\Delta t} {\boldsymbol g}$;
+5.        Do the projection: ${\boldsymbol u}^{n + 1} = projection({\Delta t}, {\boldsymbol u}^{B})$;
+6.     end;
+\end{lstlisting}
+
+根据Navier-Stokes方程组的三个分解方程式，可以看出流体模拟的三个步骤中，最为耗时的时投影步骤。该步骤实际上求解的时一个泊松方程，Stam~\cite{stam2003real}使用了经典的 高斯赛德尔迭代方法求解,Foster 等人~\cite{foster2001practical}采用了预 处 理 共 轭 梯 度 法 (Incomplete Cholesky Preconditioned Conjugate Gradient, ICPCG)求解，ICPCG 因其优秀的性能,成为了求解投影步骤的主流。但是投影步骤仍然时流体模拟方法的瓶颈。
+
+在Stam~\cite{stam1999stable}提出了允许大时间步长的无条件稳定半拉格朗日方法求解对流步骤之后，很多人针如何提高数值解的精度提出了一些改进方案，如MacCormack~\cite{selle2008unconditionally}，BFECC~\cite{kim2005flowfixer}~\cite{dupont2003back}，QUICK~\cite{molemaker2008low}等对流方法。这些对流方法在一定程度上丰富了流体动画的细节，并且相较于投影步骤，其计算开销可以忽略不计。
+
+\section{基于稀疏编码的过完备字典技术}
+
+信号处理和模式识别技术都需要一些有意义的数据，来捕获重要的特征信号，比如压缩领域，需要使用很少的一些系数来表示很重要的信号内容，过完备训练字典有比信号维数更多的信号原子，因此可以提供更好的灵活性，表示更宽的信号领域。
+
+通常来说，对于一个信号向量\({ \boldsymbol {\tilde f}} \in {\boldsymbol R}^{m \times 1}\)，如果我们可以通过线性组合集合\(\boldsymbol d_k \in {\boldsymbol R}^{k \times n},k=1,…,N\)中很少的一些原子，达到尽可能近似地重构出原信号\({\boldsymbol f}  \in {\boldsymbol R}^{k \times 1}\)，我们称这样的一个集合\(\boldsymbol d_k\)为过完备训练字典。字典的选择应尽可能好地符合被逼近信号的结构，其构成可以没有任何限制。
+
+信号的稀疏表示使信号具有简洁且有效的表达式，具有很大的应用价值。近几年来，信号的稀疏表示被广泛研究，并应用到图像去噪、修复等许多图像恢复领域。
+
+设${\boldsymbol D} \in {\boldsymbol R}^{k \times n}$是$K$个原型信号元素的过完备字典，并假设信号\({\boldsymbol x}  \in {\boldsymbol R}^{k \times 1}\) 可以表示为一个这些元素的稀疏线性组合，也就是说，信号集合\({\boldsymbol x}\)可以写成${\boldsymbol x} = {\boldsymbol D} \boldsymbol \alpha_0$的形式，其中$\boldsymbol \alpha_0 \in  {\boldsymbol R}^{k}$是一个只有很少非零元素的集合。实践中，我们可能观察只有一小组由${\boldsymbol x}$表示的测量值${\boldsymbol y}$组成的集合：
+
+\begin{equation}
+\label{eq:linear}
+\boldsymbol y = \boldsymbol L \boldsymbol x =\boldsymbol L \boldsymbol {D\alpha}_0
+\end{equation}
+
+其中，$\boldsymbol L \in {\boldsymbol R}^{n \times k}, k < n$ 。在超分辨环境下，$\boldsymbol x$是一个高精度patch，而$\boldsymbol y$是它的低精度版本。如果字典$ {\boldsymbol D}$是过完备的，那么方程式$\boldsymbol x = \boldsymbol {D \alpha}_0$无法求解出未知系数$\boldsymbol \alpha_0$，方程式~\ref{eq:linear}更不行。但是根据稀疏表示理论，在较弱情况下，最稀疏的解决方案是$\boldsymbol \alpha_0$是这个方程的唯一解，此外，如果$ {\boldsymbol D}$满足一个适当的接近等距条件，那么对于各种各样的矩阵$\boldsymbol  L$，任何一个根据$ {\boldsymbol D}$的密集场流体动画$\boldsymbol x$的足够稀疏的线性表示都可以被(几乎)完全地被稀疏场流体动画恢复。
+
+目前，字典学习方法主要集中于在一个单一特征空间为各种恢复、识别任务训练过完备字典，然而，在很多应用和实际场景中，却有两个特征空间：如超分辨技术中的高精度和低精度信号空间；纹理转换应用汇总的源图像空间和目标图像空间等等。本文中，我们希望重构上采样低精度网格速度场数据到高精度速度场空间，因此也需要一对训练字典。学习这样一对字典，无论是在信号处理还是在计算机视觉中，都有很多应用，比如压缩感知~\cite{donoho2006compressed}等。Yang~\cite{yang2012coupled}等人提出了学习低清晰度和高清晰度图像补丁的联合字典学习方法，这个方法将两个特征空间联接起来，然后将其转化为标准的单特征空间稀疏编码问题。但是该联合字典不是为每一个特征空间单独学习的，无法保证重构结果的准确性。
+
+\section{本章小节}
+
+本章介绍了流体动画技术的数学模型Navier-Stokes方程组，并且详细地给出了方程组的推导过程以及每个部分的具体含义。同时，本章还介绍了欧拉方法常用的网格方法，以及一般流体模拟方法的基本框架。流体模拟的一般方法将流体的数值计算分成了三个步骤，对流、加外力和投影步骤，其中，对流和加外力步骤相较于投影步骤，其时间开销可以忽略不计。
+
+为了解决在增加求解的网格精度时，投影步骤的计算过于昂贵这一问题，引入了本文在第三章节提出的应用过完备稀疏字典技术的重构上采样框架，将高耗时的投影步骤放到低精度网格上去计算，从而达到减少投影步骤时间耗费的目的。
+
+本章还介绍了基于稀疏编码的过完备字典技术。学习一个过完备字典，是本文的一个重点内容。在本文的第四个章节将会详细地给出本文提出的对Yang提出的联合双字典方法的改进，达到提高重构结果准确性的目的。

@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -195,5 +195,50 @@
 \newblock
 \newblock Fluid simulation: SIGGRAPH 2007 course notes Video files associated
   with this course are available from the citation page[M].[S.l.]: ACM, 2007.
+
+\bibitem[Harlow et al.(1965)]{harlow1965numerical}
+\textsc{Harlow F~H, Welch J~E}, et al.
+\newblock Numerical calculation of time-dependent viscous incompressible flow
+  of fluid with free surface[J].
+\newblock Physics of fluids, 1965, 8(12):2182.
+
+\bibitem[Selle et al.(2008)]{selle2008unconditionally}
+\textsc{Selle A, Fedkiw R, Kim B}, et al.
+\newblock An unconditionally stable MacCormack method[J].
+\newblock Journal of Scientific Computing, 2008, 35(2-3):350--371.
+
+\bibitem[Kim et al.(2005)]{kim2005flowfixer}
+\textsc{Kim B, Liu Y, Llamas I}, et al.
+\newblock
+\newblock Flowfixer: Using bfecc for fluid simulation[C]//proceedings of the
+  First Eurographics conference on Natural Phenomena.
+\newblock .[S.l.]: [s.n.] , 2005:51--56.
+
+\bibitem[Dupont and Liu(2003)]{dupont2003back}
+\textsc{Dupont T~F, Liu Y}.
+\newblock Back and forth error compensation and correction methods for removing
+  errors induced by uneven gradients of the level set function[J].
+\newblock Journal of Computational Physics, 2003, 190(1):311--324.
+
+\bibitem[Molemaker et al.(2008)]{molemaker2008low}
+\textsc{Molemaker J, Cohen J~M, Patel S}, et al.
+\newblock
+\newblock Low viscosity flow simulations for animation[C]//Proceedings of the
+  2008 ACM SIGGRAPH/Eurographics Symposium on Computer Animation.
+\newblock .[S.l.]: [s.n.] , 2008:9--18.
+
+\bibitem[Stam(2003)]{stam2003real}
+\textsc{Stam J}.
+\newblock
+\newblock Real-time fluid dynamics for games[C]//Proceedings of the game
+  developer conference.
+\newblock .[S.l.]: [s.n.] , 2003，18:25.
+
+\bibitem[Foster and Fedkiw(2001)]{foster2001practical}
+\textsc{Foster N, Fedkiw R}.
+\newblock
+\newblock Practical animation of liquids[C]//Proceedings of the 28th annual
+  conference on Computer graphics and interactive techniques.
+\newblock .[S.l.]: [s.n.] , 2001:23--30.
 
 \end{thebibliography}

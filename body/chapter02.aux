@@ -4,6 +4,7 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {第二章\hspace  {0.3em}}流体模拟的基本方法与框架}{9}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
 \newlabel{chap:fluidSimulation}{{二}{9}{流体模拟的基本方法与框架}{chapter.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Navier-Stokes方程组}{9}{section.2.1}}
 \newlabel{sec:navier-stokes}{{2.1}{9}{Navier-Stokes方程组}{section.2.1}{}}
@@ -17,13 +18,36 @@
 \newlabel{pressuredepth}{{2--1}{11}{流体粒子受压力示意图}{figure.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2--2}{\ignorespaces 流体不可压示意图}}{11}{figure.2.2}}
 \newlabel{fig:imcompressible}{{2--2}{11}{流体不可压示意图}{figure.2.2}{}}
+\citation{harlow1965numerical}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}忽略粘性力作用}{12}{subsection.2.1.3}}
 \newlabel{basicEqignoreVis}{{2--7}{12}{忽略粘性力作用}{equation.2.1.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}流体模拟的基本方法与框架}{12}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}欧拉方法网格介绍}{12}{subsection.2.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}网格介绍}{12}{subsection.2.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2--3}{\ignorespaces 中心网格2D示意图}}{13}{figure.2.3}}
+\newlabel{fig:centergrid2d}{{2--3}{13}{中心网格2D示意图}{figure.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2--4}{\ignorespaces (a) 2D MAC网格示意图；(b) 3D MAC网格示意图}}{13}{figure.2.4}}
+\newlabel{fig:macgrid}{{2--4}{13}{(a) 2D MAC网格示意图；(b) 3D MAC网格示意图}{figure.2.4}{}}
+\citation{stam2003real}
+\citation{foster2001practical}
+\citation{stam1999stable}
+\citation{selle2008unconditionally}
+\citation{kim2005flowfixer}
+\citation{dupont2003back}
+\citation{molemaker2008low}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}欧拉方法的基本框架}{14}{subsection.2.2.2}}
+\newlabel{eq:advection}{{2--8}{14}{欧拉方法的基本框架}{equation.2.2.8}{}}
+\newlabel{eq:addForce}{{2--9}{14}{欧拉方法的基本框架}{equation.2.2.9}{}}
+\newlabel{eq:projection}{{2--10}{14}{欧拉方法的基本框架}{equation.2.2.10}{}}
+\newlabel{Eulerframework}{{2.1}{14}{流体模拟的基本框架伪代码}{lstlisting.2.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2.1}流体模拟的基本框架伪代码}{14}{lstlisting.2.1}}
+\citation{donoho2006compressed}
+\citation{yang2012coupled}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}基于稀疏编码的过完备字典技术}{15}{section.2.3}}
+\newlabel{eq:linear}{{2--11}{15}{基于稀疏编码的过完备字典技术}{equation.2.3.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}本章小节}{16}{section.2.4}}
 \@setckpt{body/chapter02}{
-\setcounter{page}{13}
-\setcounter{equation}{7}
+\setcounter{page}{17}
+\setcounter{equation}{11}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -33,12 +57,12 @@
 \setcounter{CTEX@sectiondepth}{2}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
-\setcounter{section}{2}
-\setcounter{subsection}{1}
+\setcounter{section}{4}
+\setcounter{subsection}{0}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
+\setcounter{figure}{4}
 \setcounter{table}{0}
 \setcounter{parentequation}{0}
 \setcounter{subfigure}{0}
@@ -47,11 +71,11 @@
 \setcounter{lotdepth}{1}
 \setcounter{newflo@tctr}{4}
 \setcounter{NAT@ctr}{0}
-\setcounter{lstnumber}{1}
+\setcounter{lstnumber}{7}
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{0}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{23}
+\setcounter{bookmark@seq@number}{26}
 \setcounter{algo}{0}
 \setcounter{thm}{0}
 \setcounter{defn}{0}
@@ -59,6 +83,10 @@
 \setcounter{exmp}{0}
 \setcounter{rem}{0}
 \setcounter{case}{0}
-\setcounter{lstlisting}{0}
-\setcounter{section@level}{2}
+\setcounter{AlgoLine}{0}
+\setcounter{algocfline}{0}
+\setcounter{algocfproc}{0}
+\setcounter{algocf}{0}
+\setcounter{lstlisting}{1}
+\setcounter{section@level}{1}
 }

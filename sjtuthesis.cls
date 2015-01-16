@@ -244,11 +244,20 @@
       \heiti\sjtu@label@advisor &\songti
       \sjtuunderline[150pt]{\sjtu@value@advisor}
     \\  
+      \heiti\sjtu@label@degree &\songti
+      \sjtuunderline[150pt]{\sjtu@value@degree}
+    \\  
       \heiti\sjtu@label@major &\songti
       \sjtuunderline[150pt]{\sjtu@value@major}
     \\  
+      \heiti\sjtu@label@institute&\songti
+      \sjtuunderline[150pt]{\sjtu@value@institute}
+    \\  
       \heiti\sjtu@label@defenddate &\songti
       \sjtuunderline[150pt]{\sjtu@value@defenddate}
+    \\  
+      \heiti\sjtu@label@school &\songti
+      \sjtuunderline[150pt]{\sjtu@value@school}
     \end{tabular}
   \end{center}
   \vskip \stretch{0.5}
@@ -278,18 +287,38 @@
   \begin{center}
     {\normalfont\zihao{4} \sjtu@label@englishstatement}
     \vspace*{20pt}
-    \vskip\stretch{1}
-     {\zihao{-1} \sjtu@value@englishtitle}
+    \vskip\stretch{0.5}
+    {\begin{spacing}{1.2}\zihao{-1} \sjtu@value@englishtitle \end{spacing}}
     \vskip \stretch{1}
-      {\normalfont\zihao{4} \sjtu@value@englishauthor}
-    \vskip \stretch{1}
-      {\normalfont\zihao{4} \sjtu@label@englishadvisor}
-    \vskip 3pt
-      {\normalfont\zihao{4} \sjtu@value@englishadvisor}
-    \vskip \stretch{2}
-      \normalfont\normalsize \sjtu@value@englishinstitute
-    \vskip 30pt
-      \normalfont\normalsize \sjtu@value@englishdate
+
+    \begin{spacing}{2}
+    \begin{tabular}{ll}
+        \large \textbf{\sjtu@label@englishauthor}: &\songti
+        \large \sjtu@value@englishauthor
+    \\
+        \large \textbf{\sjtu@label@englishstudentnumber}: &\songti
+        \large \sjtu@value@studentnumber
+    \\
+        \large \textbf{\sjtu@label@englishadvisor}: &\songti
+        \large \sjtu@value@englishadvisor
+    \\
+        \large \textbf{\sjtu@label@englishdegree}: &\songti
+        \large \sjtu@value@englishdegree
+    \\
+        \large \textbf{\sjtu@label@englishmajor}: &\songti
+        \large \sjtu@value@englishmajor
+    \\
+        \large \textbf{\sjtu@label@englishinstitute}: &\songti
+        \large \sjtu@value@englishinstitute
+    \\
+        \large \textbf{\sjtu@label@englishdate}: &\songti
+        \large \sjtu@value@englishdate
+    \\
+        \large \textbf{\sjtu@label@englishschool}: &\songti
+        \large \sjtu@value@englishschool
+    \end{tabular}
+    \end{spacing}
+
     \vskip 20pt
   \end{center}
   \clearpage
@@ -496,8 +525,6 @@
 \endinput
 
 %%
-%% End of file `
-
-.cls'.
+%% End of file `sjtuthesis.cls'.
 
 

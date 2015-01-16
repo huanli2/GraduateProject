@@ -3,16 +3,29 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
 \contentsline {figure}{\numberline {2--1}{\ignorespaces 流体粒子受压力示意图}}{11}{figure.2.1}
-\contentsline {figure}{\numberline {2--2}{\ignorespaces 流体不可压示意图}}{11}{figure.2.2}
+\contentsline {figure}{\numberline {2--2}{\ignorespaces 流体不可压示意图}}{12}{figure.2.2}
 \contentsline {figure}{\numberline {2--3}{\ignorespaces 中心网格2D示意图}}{13}{figure.2.3}
-\contentsline {figure}{\numberline {2--4}{\ignorespaces (a) 2D MAC网格示意图；(b) 3D MAC网格示意图}}{13}{figure.2.4}
+\contentsline {figure}{\numberline {2--4}{\ignorespaces MAC网格示意图}}{13}{figure.2.4}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3--1}{\ignorespaces 流体动画重构上采样框架}}{20}{figure.3.1}
+\contentsline {figure}{\numberline {3--2}{\ignorespaces 半拉格朗日对流方法示意图}}{21}{figure.3.2}
+\contentsline {figure}{\numberline {3--3}{\ignorespaces MacCormack对流方法示意图}}{22}{figure.3.3}
+\contentsline {figure}{\numberline {3--4}{\ignorespaces 水的自由表面示意图}}{25}{figure.3.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4--1}{\ignorespaces 这里将出现在插图索引中}}{18}{figure.4.1}
+\contentsline {figure}{\numberline {4--1}{\ignorespaces 过完备字典技术的整体框架}}{28}{figure.4.1}
+\contentsline {figure}{\numberline {4--2}{\ignorespaces 过完备稀疏字典的可视化效果图}}{33}{figure.4.2}
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5--1}{\ignorespaces L1SR重构上采样实验结果对比图}}{40}{figure.5.1}
+\contentsline {figure}{\numberline {5--2}{\ignorespaces 重构上采样低频速度场数据}}{41}{figure.5.2}
+\contentsline {figure}{\numberline {5--3}{\ignorespaces scSR vs L1SR方法重构图像效果图比较}}{44}{figure.5.3}
+\contentsline {figure}{\numberline {5--4}{\ignorespaces 无障碍物场景下scSR重构上采样实验结果对比图}}{45}{figure.5.4}
+\contentsline {figure}{\numberline {5--5}{\ignorespaces 多障碍物场景下scSR重构上采样实验结果对比图}}{46}{figure.5.5}
+\contentsline {figure}{\numberline {5--6}{\ignorespaces C++模拟器中应用scSR重构上采样实验结果对比图}}{47}{figure.5.6}
+\contentsline {figure}{\numberline {5--7}{\ignorespaces 应用降采样矩阵的重构上采样方法重构Lena}}{49}{figure.5.7}
+\contentsline {figure}{\numberline {5--8}{\ignorespaces 应用降采样矩阵的重构上采样方法重构流体动画}}{50}{figure.5.8}
+\contentsline {figure}{\numberline {5--9}{\ignorespaces 应用降采样矩阵的字典方法重构上采样方法重构有障碍物场景的流体动画}}{51}{figure.5.9}
+\contentsline {figure}{\numberline {5--10}{\ignorespaces 对流体速度场选择性地应用过完备训练字典技术}}{53}{figure.5.10}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

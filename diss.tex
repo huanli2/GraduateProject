@@ -2,18 +2,26 @@
 %% diss.tex for SJTU Master Thesis
 %% based on CASthesis
 %% modified by wei.jianwen@gmail.com
-%% version: 0.3a
+%% version: 0.3a 
+
 %% Encoding: UTF-8
 %% last update: Dec 5th, 2010
 %%==================================================
 
 % 字号选项: c5size 五号(默认) cs4size 小四
 % 双面打印（注意字号设置）
-%\documentclass[cs4size, a4paper, twoside]{sjtuthesis} 
+\documentclass[cs4size, a4paper, twoside,openany]{sjtuthesis} 
 % 单面打印（注意字号设置）
-\documentclass[cs4size, a4paper, oneside, openany]{sjtuthesis} 
+%\documentclass[cs4size, a4paper, oneside, openany]{sjtuthesis} 
 
+\usepackage{tikz}
+\usepackage{lipsum}
 %\usepackage[]{algorithm2e}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{setspace}
 
 % \usepackage[sectionbib]{chapterbib}%每章都用参考文献
 
@@ -53,26 +61,29 @@
 
 % 中文封面内容(关注内容而不是形式)
 \title{应用过完备稀疏字典技术的流体模拟}
+%\author{}
+%\advisor{}
 \author{李\quad{}欢}
-\advisor{杨旭波}
-\degree{工程硕士专业}
-\defenddate{2014年12月}
+\advisor{杨旭波教授}
+\degree{工程硕士}
+\defenddate{2015年1月}
 \school{上海交通大学}
 \institute{软件学院}
+\studentnumber{}
 \studentnumber{1120379074}
 \major{软件工程}
 
 % 英文封面内容(关注内容而不是表现形式)
 \englishtitle{Fluid Simulation Using Overcomplete Dictionaries Based on Sparse Coding}
-\englishauthor{\textsc{Huan Li}}
-\englishadvisor{Prof. \textsc{Xubo Yang}}
+\englishauthor{}
+\englishadvisor{}
+\englishauthor{Huan Li}
+\englishadvisor{Prof. Xubo Yang}
 \englishschool{Shanghai Jiao Tong University}
-\englishinstitute{\textsc{School of Software Engineering} \\
-  \textsc{Shanghai Jiao Tong University} \\
-  \textsc{Shanghai, P.R.China}}
-\englishdegree{Master Degree}
-\englishmajor{Engineering}
-\englishdate{December, 2014}
+\englishinstitute{School of Software Engineering} 
+\englishdegree{Master of Engineering}
+\englishmajor{Software Engineering}
+\englishdate{January, 2015}
 
 % 封面
 \maketitle
@@ -102,7 +113,7 @@
 \addcontentsline{toc}{chapter}{\listtablename}  %将表格索引加入全文目录
 
 % 主要符号、缩略词对照表
-\include{body/symbol}
+%\include{body/symbol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% 正文
@@ -115,6 +126,7 @@
 \include{body/chapter02}
 \include{body/chapter03}
 \include{body/chapter04}
+\include{body/chapter05}
 \include{body/conclusion} %% 全文总结
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -127,8 +139,8 @@
 \renewcommand\thefigure{\Alph{chapter}--\arabic{figure}}
 \renewcommand\thetable{\Alph{chapter}--\arabic{table}}
 
-\include{body/app1} % 更新记录
-\include{body/app2} % 麦克斯韦方程
+%\include{body/app1} % 更新记录
+%\include{body/app2} % 麦克斯韦方程
 % \include{body/app3}
 
 
@@ -140,7 +152,11 @@
 % 参考文献
 % 使用 BibTeX
 % 包含参考文献文件.bib
+\begin{spacing}{0}
+\renewcommand*{\bibfont}{\footnotesize}
 \bibliography{reference/chap1,reference/chap2}
+\end{spacing}
+%\bibliography{reference/chap1,reference/chap2}
 
 %% 个人简历(硕士学位论文没有个人简历要求)
 % \include{body/resume}
@@ -152,6 +168,6 @@
 \include{body/pub}
 
 % 参与项目列表
-\include{body/projects}
+%\include{body/projects}
 
 \end{document}
